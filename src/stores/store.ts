@@ -30,7 +30,7 @@ export const okuryazarStore = defineStore('okuryazar-api', {
           method: 'GET',
           redirect: 'follow'
         };
-        fetch("http://127.0.0.1:5000/okuryazar-api/get/news/all", requestOptions)
+        fetch("https://inf303.herokuapp.com/okuryazar-api/get/news/all", requestOptions)
           .then(response => response.json())
           .then(result => {
             this.news = result;
@@ -44,7 +44,7 @@ export const okuryazarStore = defineStore('okuryazar-api', {
           method: 'GET',
           redirect: 'follow'
         };
-        fetch("http://127.0.0.1:5000/okuryazar-api/get/articles/all", requestOptions)
+        fetch("https://inf303.herokuapp.com/okuryazar-api/get/articles/all", requestOptions)
           .then(response => response.json())
           .then(result => this.articles = result)
           .catch(error => console.log('error', error));
@@ -55,7 +55,7 @@ export const okuryazarStore = defineStore('okuryazar-api', {
           method: 'GET',
           redirect: 'follow'
         };
-        fetch("http://127.0.0.1:5000/okuryazar-api/get/authors", requestOptions)
+        fetch("https://inf303.herokuapp.com/okuryazar-api/get/authors", requestOptions)
           .then(response => response.json())
           .then(result => this.authors = result)
           .catch(error => console.log('error', error));
@@ -66,7 +66,7 @@ export const okuryazarStore = defineStore('okuryazar-api', {
           method: 'GET',
           redirect: 'follow'
         };
-        fetch(`http://127.0.0.1:5000/okuryazar-api/get/category/${categoryParam}`, requestOptions)
+        fetch(`https://inf303.herokuapp.com/okuryazar-api/get/category/${categoryParam}`, requestOptions)
           .then(response => response.json())
           .then(result => this.newsByCategory = result)
           .catch(error => console.log('error', error));
@@ -81,7 +81,7 @@ export const okuryazarStore = defineStore('okuryazar-api', {
           method: 'GET',
           redirect: 'follow'
         };
-        fetch(`http://127.0.0.1:5000/okuryazar-api/search/${searchParam}`, requestOptions)
+        fetch(`https://inf303.herokuapp.com/okuryazar-api/search/${searchParam}`, requestOptions)
           .then(response => response.json())
           .then(result => this.searchResults = result)
           .catch(error => console.log('error', error));
@@ -92,7 +92,7 @@ export const okuryazarStore = defineStore('okuryazar-api', {
           method: 'GET',
           redirect: 'follow'
         };
-        fetch(`http://127.0.0.1:5000/okuryazar-api/get/articles/author/${authorName}`, requestOptions)
+        fetch(`https://inf303.herokuapp.com/okuryazar-api/get/articles/author/${authorName}`, requestOptions)
           .then(response => response.json())
           .then(result => this.articlesOfAuthor = result)
           .catch(error => console.log('error', error));
