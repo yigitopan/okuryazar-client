@@ -26,7 +26,6 @@ export default defineComponent({
     },
     mobileNav(){
       this.mobileNavActive = !this.mobileNavActive
-      console.log('sa')
     }
   },
   watch:{
