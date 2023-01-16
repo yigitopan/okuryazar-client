@@ -46,7 +46,7 @@ export default defineComponent({
                 <div class="flex gap-x-8">
                     <div class="contextDate flex">
                         <img class="w-8"  src="../assets/github.svg" alt="">
-                        <span class="self-center pl-2">07/01/2022</span>
+                        <span class="self-center pl-2">{{item.date.split('T')[0]}}</span>
                     </div>
                     <div class="contextNewspaper">
                         <img class="w-24" :src="ids[item!.newspaper_id-1]"  alt="">

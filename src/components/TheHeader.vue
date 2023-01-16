@@ -62,10 +62,10 @@ export default defineComponent({
                   <div class="px-4 group group-hover:block relative transition ease-in-out duration-300 text-lg font-normal cursor-pointer hover:font-semibold">
                     Gazeteler
                     <ul :class="{'bg-black':scrolled}" class="pt-6 left-[0px] absolute hidden group-hover:block text-black w-full font-light">
-                      <li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Sözcü</li>
-                      <li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Cumhuriyet</li>
-                      <li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Takvim</li>
-                      <li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Milliyet</li>
+                      <RouterLink to="/gazete/sozcu"><li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Sözcü</li></RouterLink>
+                      <RouterLink to="/gazete/cumhuriyet"><li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Cumhuriyet</li></RouterLink>
+                      <RouterLink to="/gazete/takvim"><li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Takvim</li></RouterLink>
+                      <RouterLink to="/gazete/milliyet"><li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Milliyet</li></RouterLink>
                     </ul>
                   </div>
                   <div class="px-4 transition ease-in-out duration-300 text-lg font-normal cursor-pointer hover:font-semibold"><RouterLink to="/kose">Köşe Yazıları</RouterLink></div>

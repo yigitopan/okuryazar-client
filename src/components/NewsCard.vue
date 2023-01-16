@@ -16,10 +16,7 @@ export default defineComponent({
     props: {
         item: {
             type: Object as (PropType<News | Article>)
-        },
-        i: {
-            type: Number
-        } 
+        }
     },
     methods: {
         goToContext() {
@@ -39,7 +36,7 @@ export default defineComponent({
                 <img v-bind:src="item!.img_url || defaultImg" alt="BannerImage" class="z-0 absolute h-full w-full object-cover object-right" />
             </div>
             <div class="mt-2 mb-1 font-semibold text-base sm:text-xl">{{ item!.title }}</div>
-            <div class="font-thin text-sm flex justify-between">
+            <div class="font-thin text-xs md:text-sm flex justify-between">
                 <p>{{ item!.date.split('T')[0] }}</p>
                 <p class="font-semibold">{{ ('author_name' in item!) ? item.author_name : '' }}</p>
             </div>

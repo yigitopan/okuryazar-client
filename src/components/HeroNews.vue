@@ -15,6 +15,13 @@ export default defineComponent({
             return first;
         },
     },
+    methods: {
+        goToContext() {
+            var store = okuryazarStore();
+            store.setContext(this.firstOfNews!);
+            this.$router.push('/icerik')
+        }
+    }
 })
 </script>
 
@@ -26,7 +33,7 @@ export default defineComponent({
         <div class="pt-28 md:pt-40 relative z-20 py-24 px-8 md:px-20 lg:px-32 mx-auto flex flex-col">
             <div><img class="mb-3 h-8 md:h-12" src="../assets/1.png" alt=""></div>
             <div><h2 class="mb-6 font-bold text-3xl md:text-5xl">{{firstOfNews.title}}</h2></div>
-            <div><button class="bg-white text-black py-2 px-6 font-bold rounded-2xl cursor-pointer">Oku</button></div>
+            <div><button @click="goToContext" class="bg-white text-black py-2 px-6 font-bold rounded-2xl cursor-pointer">Oku</button></div>
         </div>
     </div>
 </template>

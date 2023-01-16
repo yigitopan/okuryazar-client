@@ -6,6 +6,7 @@ import Articles from './pages/Articles.vue'
 import ArticlesByAuthor from './pages/ArticlesByAuthor.vue'
 import NewsByCategory from './pages/NewsByCategory.vue'
 import searchResults from './pages/SearchResults.vue'
+import ByNewspaper from './pages/ByNewspaper.vue'
 
 const router = createRouter({
     scrollBehavior(to, from, savedPosition) {
@@ -22,6 +23,7 @@ const router = createRouter({
         {path:'/kose/:fullname', component: ArticlesByAuthor },
         {path:'/kategori/:category', component: NewsByCategory },
         {path:'/ara/:query', component: searchResults },
+        {path:'/gazete/:newspaperName', component: ByNewspaper },
     ],
     
 });

@@ -13,6 +13,8 @@ export const okuryazarStore = defineStore('okuryazar-api', {
       context: {} as News | Article,
       searchResults:[] as (News | Article)[],
       articlesOfAuthor:[] as Article[],
+      newsByNewspaper:[] as News[],
+      articlesByNewspaper:[] as Article[],
     }),
     getters: {
       getNews: (state) => state.news,
@@ -23,6 +25,8 @@ export const okuryazarStore = defineStore('okuryazar-api', {
       getContext: (state) => state.context,
       getSearchResults: (state) => state.searchResults,
       getArticlesOfAuthor: (state) => state.articlesOfAuthor,
+      getNewsByNewspaper: (state) => state.newsByNewspaper,
+      getArticlesByNewspaper: (state) => state.articlesByNewspaper,
     },
     actions: {
       async fetchNews() {
@@ -95,6 +99,20 @@ export const okuryazarStore = defineStore('okuryazar-api', {
         fetch(`https://inf303.herokuapp.com/okuryazar-api/get/articles/author/${authorName}`, requestOptions)
           .then(response => response.json())
           .then(result => this.articlesOfAuthor = result)
+          .catch(error => console.log('error', error));
+      },
+
+      async fetchByNewspaper(newspaperName: String) {
+        let requestOptions: RequestInit = {
+          method: 'GET',
+          redirect: 'follow'
+        };
+        fetch(`https://inf303.herokuapp.com/okuryazar-api/get/both/${newspaperName}`, requestOptions)
+          .then(response => response.json())
+          .then(result => {
+            this.newsByNewspaper = result.news;
+            this.articlesByNewspaper = result.articles;
+          })
           .catch(error => console.log('error', error));
       },
     },

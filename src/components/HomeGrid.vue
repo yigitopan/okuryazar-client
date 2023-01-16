@@ -30,16 +30,16 @@ export default defineComponent({
         <div class="container mx-auto py-10 px-2">
             <h3 class="mb-5 font-signika font-bold text-3xl">Yeni Haberler</h3>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 md:gap-10">
-                <NewsCard v-for="index in 8" :item="news[index]" :key="news[index].title" :i="index"/>             
+                <NewsCard v-for="index in 8" :item="news[index]" :key="news[index].title"/>             
             </div>
         </div>
     </div>
 
-    <div class="bg-white ">
+    <div class="bg-white">
         <div class="container mx-auto py-10 px-2">
             <h3 class="text-black mb-3 font-signika font-bold text-3xl">Köşe Yazıları</h3>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-10 text-black">
-                <NewsCard v-for="index in 8" :item="articles[index]" :i="index"/>             
+            <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 gap-y-12 md:gap-10 text-black">
+                <NewsCard v-for="index in 12" :item="articles[index]"/>             
             </div>
         </div>
     </div>
