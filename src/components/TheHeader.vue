@@ -8,7 +8,9 @@ export default defineComponent({
       searchQuery:"",
       searchMode: false,
       scrolled: false,
-      mobileNavActive:false
+      mobileNavActive:false,
+      categoryMobile:false,
+      newspaperMobile:false,
     };
   },
   methods: {
@@ -26,6 +28,14 @@ export default defineComponent({
     },
     mobileNav(){
       this.mobileNavActive = !this.mobileNavActive
+    },
+    showCategories(){
+      this.categoryMobile = true
+      this.newspaperMobile = false
+    },
+    showNewspapers(){
+      this.categoryMobile = false
+      this.newspaperMobile = true
     }
   },
   watch:{
@@ -60,7 +70,7 @@ export default defineComponent({
               <div class="hidden sm:flex flex-row items-center justify-between" :class="{'text-black':!scrolled, '!hidden':searchMode}">
                   <div class="relative group group-hover:block px-4 transition ease-in-out duration-300 text-lg font-normal cursor-pointer hover:font-semibold">
                     Kategoriler
-                    <ul :class="{'bg-black':scrolled}" class="pt-6 left-[0px] absolute hidden group-hover:block text-black w-full font-light">
+                    <ul :class="{'bg-black':scrolled}" class="flex pt-6 left-[0px] absolute hidden group-hover:block text-black w-full font-light">
                       <RouterLink to="/kategori/gundem"><li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Gündem</li></RouterLink>
                       <RouterLink to="/kategori/ekonomi"><li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Ekonomi</li></RouterLink>
                       <RouterLink to="/kategori/spor"><li class=" bg-white py-3 text-sm text-center cursor-pointer hover:font-semibold border-b-2 border-gray-500">Spor</li></RouterLink>
@@ -98,8 +108,8 @@ export default defineComponent({
           </div> -->
           <div :class="{'active-mobile':mobileNavActive, 'inactive-mobile':!mobileNavActive}" class="z-10 flex flex-col items-center pt-10 absolute h-[100vh] bg-black w-full transition-all ease-in-out duration-300">
               <div class="px-4 mb-4 transition ease-in-out duration-300 text-4xl font-semibold cursor-pointer hover:font-semibold">
-                      Kategoriler
-                      <ul class="w-full font-light">
+                      <span @click="showCategories">Kategoriler</span>
+                      <ul v-if="categoryMobile" class="w-full font-light">
                         <RouterLink to="/kategori/gundem"><li class="py-1 text-sm text-center cursor-pointer hover:font-semibold">Gündem</li></RouterLink>
                         <RouterLink to="/kategori/ekonomi"><li class="py-1 text-sm text-center cursor-pointer hover:font-semibold">Ekonomi</li></RouterLink>
                         <RouterLink to="/kategori/spor"><li class="py-1 text-sm text-center cursor-pointer hover:font-semibold">Spor</li></RouterLink>
@@ -108,8 +118,8 @@ export default defineComponent({
               </div>
 
               <div class="mb-4 relative transition ease-in-out duration-300 text-4xl font-semibold cursor-pointer hover:font-semibold">
-                      Gazeteler
-                      <ul class="w-full font-light">
+                      <span @click="showNewspapers">Gazeteler</span>
+                      <ul v-if="newspaperMobile" class="w-full font-light">
                         <RouterLink to="/gazete/sozcu"><li class="py-1 text-sm text-center cursor-pointer hover:font-semibold">Sözcü</li></RouterLink>
                         <RouterLink to="/gazete/cumhuriyet"><li class="py-1 text-sm text-center cursor-pointer hover:font-semibold">Cumhuriyet</li></RouterLink>
                         <RouterLink to="/gazete/takvim"><li class="py-1 text-sm text-center cursor-pointer hover:font-semibold">Takvim</li></RouterLink>
