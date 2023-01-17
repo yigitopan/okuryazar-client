@@ -20,6 +20,7 @@ export default defineComponent({
         news(){
             const store = okuryazarStore();
             const news: News[] = store.getNewsByNewspaper
+            news.length>0 ? store.loadingDone() : false
             return news
         },
         articles(){

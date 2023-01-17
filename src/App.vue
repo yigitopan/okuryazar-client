@@ -2,10 +2,12 @@
 import { defineComponent } from "vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheFooter from './components/TheFooter.vue';
+import Loading from './components/Loading.vue';
 import { okuryazarStore } from './stores/store'
 
 export default defineComponent({
   components: {
+    Loading,
     TheHeader,
     TheFooter
   },
@@ -14,12 +16,22 @@ export default defineComponent({
     store.fetchAuthors();
     store.fetchArticles();
     store.fetchNews();
+  },
+  computed: {
+    loading() {
+      const store = okuryazarStore();
+      const loading: Boolean = store.getLoadingState
+      console.log(loading)
+      return loading;
+    }
   }
+  
 });
 </script>
 
 <template>
   <TheHeader />
+  <Loading v-if="loading" ></loading>
   <router-view/>
   <TheFooter />
 </template>

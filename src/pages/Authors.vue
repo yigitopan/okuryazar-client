@@ -8,6 +8,7 @@ export default defineComponent({
        authors() {
            var store = okuryazarStore();
            let authors: Author[] = store.getAuthors
+           authors.length>0 ? store.loadingDone() : false
            return authors;
        }
     },

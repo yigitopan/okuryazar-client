@@ -20,6 +20,7 @@ export default defineComponent({
         newsByCategory() {
             var store = okuryazarStore();
             const news: News[] = store.getNewsByCategory;
+            news.length>0 ? store.loadingDone() : false
             return news;
         },
         category() {

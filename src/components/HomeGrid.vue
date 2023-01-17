@@ -15,6 +15,7 @@ export default defineComponent({
         news() {
             var store = okuryazarStore();
             const news: News[] = store.getNews;
+            news.length>0 ? store.loadingDone() : false
             return news;
         }
     },
@@ -35,7 +36,7 @@ export default defineComponent({
         </div>
     </div>
 
-    <div class="bg-white">
+    <div v-if="articles.length>0" class="bg-white">
         <div class="container mx-auto py-10 px-2">
             <h3 class="text-black mb-3 font-signika font-bold text-3xl">Köşe Yazıları</h3>
             <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 gap-y-12 md:gap-10 text-black">

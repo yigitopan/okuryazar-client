@@ -12,17 +12,22 @@ export default defineComponent({
     setup() {
             const route = useRoute();
             const fullname = route.params.fullname as string
-            var store = okuryazarStore();
+            const store = okuryazarStore();
             store.fetchArticlesOfAuthor(fullname)
-            console.log('set')
+            console.log('gitti')
     },
     computed: {
         articles() {
-            console.log('fetch')
             var store = okuryazarStore();
             const articles: Article[] = store.getArticlesOfAuthor;
             return articles;
         },
+        name() {
+            if(this.articles.length>0){
+                return this.articles[0].author_name
+            }
+            return ''
+        }
     },
     components: {
         NewsCard
@@ -33,7 +38,7 @@ export default defineComponent({
 <template>
     <div>
         <div class="container mx-auto py-10 px-2 md:px-6">
-            <h3 class="mb-5 font-signika font-bold text-3xl">Köşe yazıları</h3>
+            <h3 class="mb-5 font-signika font-bold text-3xl">Köşe yazıları - {{ name }}</h3>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 md:gap-10">
                 <NewsCard v-for="article in articles" :item="article"/>             
             </div>

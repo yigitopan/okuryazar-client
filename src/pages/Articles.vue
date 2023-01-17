@@ -13,6 +13,7 @@ export default defineComponent({
         articles() {
             var store = okuryazarStore();
             const articles: Article[] = store.getArticles;
+            articles.length>0 ? store.loadingDone() : false
             return articles;
         },
     },

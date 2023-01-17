@@ -15,6 +15,7 @@ export default defineComponent({
         searchResults() {
             var store = okuryazarStore();
             const results: (Article | News)[] = store.getSearchResults;
+            results.length>0 ? store.loadingDone() : false
             return results;
         },
     },
