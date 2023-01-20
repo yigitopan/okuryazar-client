@@ -30,10 +30,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <TheHeader />
+  <TheHeader/>
   <Loading v-if="loading" ></loading>
   <router-view/>
-  <TheFooter />
+  <TheFooter  v-if="!loading" />
 </template>
 
 <style>

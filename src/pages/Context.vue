@@ -14,6 +14,10 @@ export default defineComponent({
         item() {
         const store = okuryazarStore()
         const item: News | Article = store.getContext
+        if(item.title == undefined){
+            alert('İçerik bulunamadı, tekrar deneyiniz.')
+            this.$router.push('/')
+        }
         return item;
         }
     }
@@ -22,16 +26,16 @@ export default defineComponent({
 
 
 <template>
-    <div class="container px-4 mx-auto flex flex-col text-left text-gray-300">
-        <div class="my-12 w-full flex sm:flex-row flex-col items-center justify-between">
-            <div class="hidden sm:block sm:basis-1/2 px-2 sm:px-4">
+    <div v-if="item.date != undefined" class="container px-4 mx-auto flex flex-col text-left text-gray-300">
+        <div :class="{'justify-between': ('spot' in item), 'justify-start ':('author_name' in item)}" class="my-12 w-full flex sm:flex-row flex-col items-center">
+            <div :class="{'sm:basis-1/2': ('spot' in item)}" >
+                <img v-if="'spot' in item" class="object-cover w-full h-[40vh]" :src="item.img_url" alt="">
+                <img v-else class="rounded-full object-cover w-24" :src="item.img_url" alt="">
+            </div>
+            <div :class="{'sm:basis-1/2 hidden': ('spot' in item)}" class="sm:block px-2 sm:px-4">
                 <h2 class="font-semibold text-2xl text-gray-200">
                     {{ ('spot' in item) ? item.spot : item.author_name }}
                 </h2>
-            </div>
-
-            <div class="sm:basis-1/2">
-                <img class="object-cover w-full h-[40vh]" :src="item.img_url" alt="">
             </div>
         </div>
         
@@ -45,10 +49,10 @@ export default defineComponent({
             <div class="flex flex-row justify-between h-20 items-center">
                 <div class="flex gap-x-8">
                     <div class="contextDate flex">
-                        <img class="w-8"  src="../assets/github.svg" alt="">
-                        <span class="self-center pl-2">{{item.date.split('T')[0]}}</span>
+                        <img class="invert w-6"  src="../assets/date-icon.svg" alt="">
+                        <span class="self-center pl-2">{{new Date(item.date.replace(' ', 'T')).toLocaleDateString('tr-TR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}}</span>
                     </div>
-                    <div class="contextNewspaper">
+                    <div class="contextNewspaper flex items-center">
                         <img class="w-24" :src="ids[item!.newspaper_id-1]"  alt="">
                     </div>
                 </div>
@@ -63,8 +67,8 @@ export default defineComponent({
                 </h2>
             </div>
             
-            <div class="pb-3 text-lg">
-                <p>
+            <div class="pb-3 w-12/12 text-justify">
+                <p class="leading-loose">
                     {{ item.context }}
                 </p>
             </div>

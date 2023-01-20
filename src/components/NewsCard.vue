@@ -29,15 +29,14 @@ export default defineComponent({
 </script>
 
 <template>
-      
-        <div class="relative flex flex-col grid-card hover:opacity-70 cursor-pointer" @click="goToContext">
+        <div v-if="item!.date != undefined" class="relative flex flex-col grid-card hover:opacity-70 cursor-pointer" @click="goToContext">
             <img class="bg-white w-20 absolute right-0 z-10" :src="ids[(item!.newspaper_id)-1]" alt="">
             <div class="relative h-44">
                 <img v-bind:src="item!.img_url || defaultImg" alt="BannerImage" class="z-0 absolute h-full w-full object-cover object-right" />
             </div>
-            <div class="mt-2 mb-1 font-semibold text-base sm:text-xl">{{ item!.title }}</div>
+            <div class="mt-2 mb-1 font-semibold text-base sm:text-xl">{{ item!.title.substring(0,75) }} {{ item!.title.length>75 ? '...' : ''}}</div>
             <div class="font-thin text-xs md:text-sm flex justify-between">
-                <p>{{ item!.date.split('T')[0] }}</p>
+                <p>{{new Date(item!.date.replace(' ', 'T')).toLocaleDateString('tr-TR', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }) }}</p>
                 <p class="font-semibold">{{ ('author_name' in item!) ? item.author_name : '' }}</p>
             </div>
         </div>
