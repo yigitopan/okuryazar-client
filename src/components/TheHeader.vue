@@ -92,7 +92,7 @@ export default defineComponent({
               </div>
 
               <div class="md:w-1/3 flex" :class="{'hidden':!searchMode}">
-                <input @keyup.enter="searchEnterHandler" v-model="searchQuery" class="basis-11/12 p-3 w-full" type="text" name="" id="">
+                <input @keyup.enter="searchEnterHandler" v-model="searchQuery" class="border-2 border-gray-300 basis-11/12 p-3 w-full" type="text" name="" id="">
                 <div :class="{'invert':scrolled}" @click="setSearchMode(false)" class="cursor-pointer hover:font-extrabold basis-1/12 flex items-center justify-center text-3xl text-black">✖ </div>
               </div>
 
