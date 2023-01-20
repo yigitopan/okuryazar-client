@@ -27,7 +27,7 @@ export default defineComponent({
     <div>
         <div class="container mx-auto py-10 px-2 md:px-6">
             <h3 class="mb-5 font-signika font-bold text-3xl">Köşe yazıları</h3>
-            <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-12 gap-2 md:gap-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-y-12 gap-2 md:gap-10">
                 <NewsCard v-for="article in articles" :item="article"/>             
             </div>
         </div>
