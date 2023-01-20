@@ -47,17 +47,17 @@ export default defineComponent({
             </div>
 
             <div class="flex flex-row justify-between h-20 items-center">
-                <div class="flex gap-x-8">
+                <div class="flex gap-x-8 w-full">
                     <div class="contextDate flex">
                         <img class="invert w-6"  src="../assets/date-icon.svg" alt="">
-                        <span class="self-center pl-2">{{new Date(item.date.replace(' ', 'T')).toLocaleDateString('tr-TR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}}</span>
+                        <span class="self-center text-sm pl-2">{{new Date(item.date.replace(' ', 'T')).toLocaleDateString('tr-TR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}}</span>
                     </div>
                     <div class="contextNewspaper flex items-center">
                         <img class="w-24" :src="ids[item!.newspaper_id-1]"  alt="">
                     </div>
+                    <div class="flex items-center ml-auto"><p class="font-light text-xs text-blue-200 cursor-pointer hover:underline text-center">Kaynak sitede görüntüle</p></div>
                 </div>
 
-                <div><p class="font-light text-xs text-blue-200 cursor-pointer hover:underline">Kaynak sitede görüntüle</p></div>
                 
             </div>
 
