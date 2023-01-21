@@ -67,7 +67,7 @@ export default defineComponent({
         <div v-if="articles.length>0" class="bg-white">
             <div class="container mx-auto py-10 px-2">
                 <h3 class="text-black mb-3 font-signika font-bold text-3xl">{{param}} - Köşe Yazıları</h3>
-                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 gap-y-12 md:gap-10 text-black">
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 gap-y-12 md:gap-10 text-black">
                     <NewsCard v-for="index in 24" :item="articles[index]"/>             
                 </div>
             </div>
