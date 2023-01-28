@@ -3,6 +3,7 @@
 
 Open-source bundle app for turkish news. This repository serves to the client side of the project. For server side, [click here](https://github.com/yigitopan/okuryazar-server)
 
+#
 
 # Vue 3 + TypeScript + Vite
 
