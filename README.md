@@ -1,4 +1,6 @@
 ## Okuryazar
+### Now online at [okuryazar.dev](https://www.okuryazar.dev)!
+
 Open-source bundle app for turkish news. This repository serves to the client side of the project. For server side, [click here](https://github.com/yigitopan/okuryazar-server)
 
 
