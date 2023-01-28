@@ -32,7 +32,7 @@ export default defineComponent({
 <template>
   <TheHeader/>
   <Loading v-if="loading" ></loading>
-  <router-view/>
+  <router-view />
   <TheFooter  v-if="!loading" />
 </template>
 

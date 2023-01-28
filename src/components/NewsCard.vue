@@ -24,12 +24,19 @@ export default defineComponent({
             store.setContext(this.item!);
             this.$router.push('/icerik')
         }
+    },
+    computed: {
+        load() {
+            var store = okuryazarStore() 
+            const loaded  = store.getLoadingState;
+            return loaded 
+        }
     }
 })
 </script>
 
 <template>
-        <div v-if="item!.date != undefined" class="relative flex flex-col grid-card hover:opacity-70 cursor-pointer" @click="goToContext">
+        <div v-if="item != undefined && !load" class="relative flex flex-col grid-card hover:opacity-70 cursor-pointer" @click="goToContext">
             <img class="bg-white w-20 absolute right-0 z-10" :src="ids[(item!.newspaper_id)-1]" alt="">
             <div class="relative h-44">
                 <img v-bind:src="item!.img_url || defaultImg" alt="BannerImage" class="z-0 absolute h-full w-full object-cover object-right" />
