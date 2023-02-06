@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./src/assets/okuryazar-logo.svg" width="300"  />
+<img src="./src/assets/okuryazar-logo.svg" width="200"  /><img src="https://i.hizliresim.com/rbtotp9.png" width="200"  />
 </div>
 
 ### Now online at [okuryazar.dev](https://www.okuryazar.dev)!
